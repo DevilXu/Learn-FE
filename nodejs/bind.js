@@ -1,8 +1,12 @@
 /**
  * 模拟js bind方法的实现
  */
-const OBJ = {
+const OBJ1 = {
   x: 1,
+  y: 2
+}
+const OBJ2 = {
+  x: 4,
   y: 2
 }
 function add(y) {
@@ -17,7 +21,5 @@ function mockBind() {
   }
 }
 mockBind();
-
-
-const bindAdd = add.mockBind(OBJ);
+const bindAdd = add.mockBind(OBJ1).mockBind(OBJ2);
 bindAdd(4);
