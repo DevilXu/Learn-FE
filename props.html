@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <script src="https://libs.cdnjs.net/vue/2.6.10/vue.js"></script>
+  </head>
+  <body>
+    <div id="xxx">{{ name }}</div>
+    <script>
+      /**
+       * props流程：vue接收props时，原始值存储在vm.$options.props中
+       * 在初始化过程中，会先通过normalizeProps将props中的数据统一结构，然后通过遍历vm.$options.props
+       * 的数据，通过结合propsData中的数据，将全部props项全部通过defineProperty方法绑定到vm._props中实现数据绑定
+       * */
+      const ll = new Vue({
+        el: '#xxx',
+        props: {
+          test: 123
+        },
+        data() {
+          return {
+            name: 'xxxx'
+          };
+        }
+      });
+
+      var Comp = Vue.extend({
+        props: ['msg'],
+        template: '<div>{{ msg }}</div>'
+      })
+
+      var vm = new Comp({
+        propsData: {
+          msg: 'hello'
+        }
+      })
+      console.log(vm);
+    </script>
+  </body>
+</html>

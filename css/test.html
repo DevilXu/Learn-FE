@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .hollow-circles {
+      width: 300px;
+      height: 100px;
+      position: relative;
+      background: #00adb5;
+      margin-bottom: 10px;
+    }
+    .hollow-circles::after {
+      content: '';
+      position: absolute;
+      height: 5px;
+      width:100%;
+      left: 0;
+      bottom: -5px;
+      background-image: linear-gradient(to right, #00adb5 5px, transparent 5px, transparent),
+      radial-gradient(10px circle at 10px 5px, transparent 5px, #00adb5 5px);
+      background-size: 15px 5px;
+    }
+  </style>
+  <script>
+    aa();
+    function aa() {
+      console.log(123);
+    }
+  </script>
+</head>
+<body>
+  <p style="width: 200px; background: blue;">123</p>
+  <div style="background: red; height: 30px; width: 500px;">
+    <div style="float: left; width: 100px; background: #ddd;">
+      123DocumentDocumentDocumentDocumentDocumentDocumentDocumentDocument
+    </div>
+  </div>
+  <div style="position: relative; width: 200px; height: 200px; background: red;">
+    <div style="position: absolute;
+      top: 0;
+      left: 10px;
+      right: 10px;
+      margin: 0 10px;
+      background: #ddd;
+      width: 50px;
+      height: 50px;"></div>
+  </div>
+  <div class="hollow-circles" style="margin: 500px 0 0 0"></div>
+
+  <p style="font-size: 12px; line-height: 24px;border: 1px dashed black;width: 200px;">
+    This is text,  This is text,  This is text,  This is text,  This is text,  This is text, 
+    This is text, <strong style="float: right;">strongly emphasized</strong>larger than the surrounding text.
+    larger than the surrounding text.
+    larger than the surrounding text.
+    larger than the surrounding text.
+    larger than the surrounding text.
+  </p>
+  <span style="width: 100px; height: 100px; background: red;">asdad</span>
+
+  <script>
+    // 木易杨
+    function Foo() {
+      this.value = 42;
+    }
+    Foo.prototype = {
+      method: function() {
+        console.log(456);
+      }
+    };
+    function Bar() {}
+    // 设置 Bar 的 prototype 属性为 Foo 的实例对象
+    Bar.prototype = new Foo();
+    Bar.prototype.foo = 'Hello World';
+    Bar.prototype.constructor === Object;
+    // true
+    // 修正 Bar.prototype.constructor 为 Bar 本身
+    Bar.prototype.constructor = Bar;
+    var test = new Bar() // 创建 Bar 的一个新实例
+    console.log(test);
+    test.method();
+
+
+
+
+    function* haha() {
+      yield 1;
+      yield 2;
+    }
+    var g = haha();
+    console.log(g.next());
+  </script>
+</body>
+</html>

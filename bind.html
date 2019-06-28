@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function initMyBind() {
+      Function.prototype.myBind = function(...args) {
+        const fn = this;
+        const content = args.splice(0, 1)[0];
+        content.fn = fn;
+        return function demo(...params) {
+          if (this instanceof demo) {
+            return new fn(...args, ...params);
+          }
+          content.fn(...params);
+        };
+      };
+    }
+    initMyBind();
+    function AA(a, b, c) {
+      console.log(this);
+      this.a = a;
+      this.b = b;
+      this.c = c;
+      console.log(this.a, this.b, this.c);
+    }
+    const AAA = AA.myBind({a: 1});
+    // AAA(1,2,3);
+    new AAA(4, 5, 6);
+  </script>
+</body>
+</html>

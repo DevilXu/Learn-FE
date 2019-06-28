@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+    .left {
+      display: flex;
+      flex-basis: 200px;
+      width: 200px;
+      height: 200px;
+      justify-content: center;
+      align-items: center;
+      background: green;
+    }
+    .main {
+      height: 200px;
+      background: red;
+    }
+    .right {
+      flex-basis: 200px;
+      width: 200px;
+      height: 200px;
+      background: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class='left'>
+      <div style="width: 20px; height: 20px; background: hotpink;"></div>
+    </div>
+    <div class="main"></div>
+    <div class="right"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function *testGenerator(x) {
+      let a = yield x + 1;
+      let b = yield a + 2;
+      return b;
+    }
+    const FN = testGenerator(123);
+    console.log(FN.next(1));
+    console.log(FN.next());
+    console.log(FN.next());
+  </script>
+</body>
+</html>

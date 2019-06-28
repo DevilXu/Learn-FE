@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+   .demo{
+      display: flex;
+      flex-direction: column;            
+    }
+    .demo div{
+      flex: 1;
+      text-align: center;
+    }
+    .body{
+      display: flex;  
+    } 
+    .header,
+    .footer,
+    .left,
+    .right{
+      flex: 0 0 10%!important; /* 分别为flex-grow, flex-shrink, flex-basis */
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">
+    <div class="header">头部</div>
+    <div class="body">
+      <div class="left">left</div>
+      <div class="center">center</div>
+      <div class="right">right</div>
+    </div>
+    <div class="footer">底部</div>
+  </div>
+  <script>
+    const PromiseA = new Promise((resolve, reject) => {
+      resolve(123);
+    });
+    console.log(PromiseA);
+    const PromiseB = PromiseA.then((a) => {
+      return new Promise((resolve, reject) => {
+        resolve('yiha');
+      })
+    }).then((aa) => {
+      console.log(aa);
+    });
+    console.log(PromiseB);
+  </script>
+</body>
+</html>

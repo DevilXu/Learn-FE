@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const safePromise = promise => promise.then(data => [null, data]).catch(err => [err]);
+    function disabledTillRejected(fn) {
+      let err = null;
+      let data;
+      return async function(...args) {
+        [err, data] = await safePromise(fn.apply(this, args))
+        return [err, data];
+      }
+    }
+    function test() {
+      return new Promise((resolve) => {
+        resolve(123);
+      });
+    }
+    const aa = disabledTillRejected(test);
+    const result = aa();
+  </script>
+</body>
+</html>

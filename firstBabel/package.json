@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "babel-types": "^6.26.0",
+    "loadsh": "^0.0.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-types": "^6.26.0"
+  }
+}
