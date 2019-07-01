@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="id1">
+    123
+      <div id="id2">
+        456
+        <div id="id3" onclick="javascript:alert('xxx');">
+          789
+        </div>
+      </div>
+  </div>
+  <script>
+    // 事件冒泡 捕获机制 先捕获后冒泡
+    document.getElementById('id1').addEventListener('click', () => {
+      alert(1);
+    }, true);
+    document.getElementById('id2').addEventListener('click', () => {
+      alert(2);
+    }, true);
+    document.getElementById('id3').addEventListener('click', () => {
+      alert(3);
+    }, true);
+    document.getElementById('id1').addEventListener('click', () => {
+      alert(6);
+    }, false);
+    document.getElementById('id2').addEventListener('click', () => {
+      alert(5);
+    }, false);
+    document.getElementById('id3').addEventListener('click', () => {
+      alert(4);
+    }, false);
+  </script>
+</body>
+</html>
