@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./compile.js"></script>
+  <script src="./watch.js"></script>
+  <script src="./Dep.js"></script>
+  <script src="./myVue.js"></script>
+</head>
+<body>
+  <div id="elDom">
+    {{ name }}
+  </div>
+  <button onclick="aa()">123</button>
+  <input oninput="inputVal()" id="xxxx"/>
+  <script>
+    const myVue = new MyVue({
+      el: 'elDom',
+      data() {
+        return {
+          name: '123'
+        };
+      }
+    });
+    function aa() {
+      myVue.name = Math.random() * 100;
+    }
+    function inputVal() {
+      myVue.name = document.getElementById('xxxx').value;
+    }
+  </script>
+</body>
+</html>
